@@ -13,7 +13,7 @@ namespace Analogy.LogViewer.Template
         public IAnalogyCustomActionsFactory Actions { get; } = new EmptyActionsFactory(); // if no custom action needed
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; } = ChangeLogList.GetChangeLog();
         public IEnumerable<string> Contributors { get; } = new List<string> { "Lior Banai" };
-        public string About { get; } = "Log4 Parser for Analogy Log Viewer";
+        public string About { get; } = "Log Parser for Analogy Log Viewer";
 
         public PrimaryFactory()
         {
