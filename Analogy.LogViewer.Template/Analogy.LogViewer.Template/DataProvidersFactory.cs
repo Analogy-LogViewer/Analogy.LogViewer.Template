@@ -6,9 +6,9 @@ using Analogy.Interfaces.Factories;
 
 namespace Analogy.LogViewer.Template
 {
-   public class DataProvidersFactory :IAnalogyDataProvidersFactory
+    public class DataProvidersFactory : IAnalogyDataProvidersFactory
     {
-        public string Title { get; } ="Some Title";
+        public string Title { get; } = "Some Title";
         public IEnumerable<IAnalogyDataProvider> Items { get; }
 
         public DataProvidersFactory()
