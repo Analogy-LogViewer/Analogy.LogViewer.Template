@@ -18,7 +18,7 @@ namespace Analogy.LogViewer.Template
         public Guid ID { get; }
         public string OptionalTitle { get; }
 
-        public Task InitializeDataProviderAsync()
+        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             throw new NotImplementedException();
         }

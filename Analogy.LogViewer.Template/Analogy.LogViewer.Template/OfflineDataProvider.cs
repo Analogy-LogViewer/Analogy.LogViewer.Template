@@ -43,7 +43,7 @@ namespace Analogy.LogViewer.Template
             throw new NotImplementedException();
         }
 
-        public Task InitializeDataProviderAsync()
+        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             throw new NotImplementedException();
         }
