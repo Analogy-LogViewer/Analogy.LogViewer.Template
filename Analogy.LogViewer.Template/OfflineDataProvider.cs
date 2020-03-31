@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.Template
 {
-   public class OfflineDataProvider:IAnalogyOfflineDataProvider
+    public class OfflineDataProvider : IAnalogyOfflineDataProvider
     {
-  
+
+        public bool DisableFilePoolingOption { get; }
         public Guid ID { get; }
         public string OptionalTitle { get; }
         public bool CanSaveToLogFile { get; }
@@ -42,6 +42,7 @@ namespace Analogy.LogViewer.Template
         {
             throw new NotImplementedException();
         }
+
 
         public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
