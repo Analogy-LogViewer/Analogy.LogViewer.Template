@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using Analogy.Interfaces;
@@ -14,7 +15,12 @@ namespace Analogy.LogViewer.Template
         public event EventHandler<AnalogyDataSourceDisconnectedArgs> OnDisconnected;
         public event EventHandler<AnalogyLogMessageArgs> OnMessageReady;
         public event EventHandler<AnalogyLogMessagesArgs> OnManyMessagesReady;
+        public bool UseCustomColors { get; set; } = false;
+        public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+            => Array.Empty<(string, string)>();
 
+        public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+            => (Color.Empty, Color.Empty);
         public Guid ID { get; }
         public string OptionalTitle { get; }
 

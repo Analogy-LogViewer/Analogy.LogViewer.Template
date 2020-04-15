@@ -1,6 +1,7 @@
 ﻿using Analogy.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,12 @@ namespace Analogy.LogViewer.Template
         public string FileSaveDialogFilters { get; }
         public IEnumerable<string> SupportFormats { get; }
         public string InitialFolderFullPath { get; }
+        public bool UseCustomColors { get; set; } = false;
+        public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+            => Array.Empty<(string, string)>();
+
+        public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+            => (Color.Empty, Color.Empty);
         public Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {
             throw new NotImplementedException();
