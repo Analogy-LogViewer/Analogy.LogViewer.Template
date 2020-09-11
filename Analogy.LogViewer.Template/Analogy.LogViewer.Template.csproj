@@ -5,6 +5,9 @@
 	  <UseWindowsForms>true</UseWindowsForms>
 	  <OutputType>Library</OutputType>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
+	  <IncludeSymbols>true</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	  <Authors>Lior Banai</Authors>
 	  <Company>Analogy.LogViewer</Company>
 	  <Description>Template implementation to be used as base implementation</Description>
@@ -20,6 +23,14 @@
 
   <ItemGroup>
     <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.4.8" />
+    <PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
