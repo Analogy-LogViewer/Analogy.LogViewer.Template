@@ -19,8 +19,7 @@
 	  <RepositoryType>git</RepositoryType>
 	  <PackageReleaseNotes>Template implementation to be used as base implementation</PackageReleaseNotes>
 	  <NeutralLanguage>en-US</NeutralLanguage>
-	  <Version>1.1.1</Version>
-	  <FileVersion>1.1.1.0</FileVersion>
+	  <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
