@@ -263,6 +263,26 @@ namespace Analogy.LogViewer.Template.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Properties_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Properties_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Properties_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Properties_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap RecentFiles16x16 {
             get {
                 object obj = ResourceManager.GetObject("RecentFiles16x16", resourceCulture);
@@ -316,6 +336,26 @@ namespace Analogy.LogViewer.Template.Properties {
         public static System.Drawing.Bitmap Search32x32 {
             get {
                 object obj = ResourceManager.GetObject("Search32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Settings16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Settings16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Settings32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Settings32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

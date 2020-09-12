@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Analogy.Interfaces;
 using Analogy.LogViewer.Template.Properties;
 
@@ -29,9 +25,9 @@ namespace Analogy.LogViewer.Template.IAnalogy
         public virtual Image GetSmallCombineLogsImage(Guid analogyComponentId) => Resources.Combine16x16;
         public virtual Image GetLargeCompareLogsImage(Guid analogyComponentId) => Resources.Compare32x32;
         public virtual Image GetSmallCompareLogsImage(Guid analogyComponentId) => Resources.Compare16x16;
-        public virtual Image GetLargeConnectedLogsImage(Guid analogyComponentId) => Resources.DatabaseOn32x32;
-        public virtual Image GetSmallConnectedLogsImage(Guid analogyComponentId) => Resources.DatabaseOn16x16;
-        public virtual Image GetLargeDisconnectedLogsImage(Guid analogyComponentId) => Resources.DatabaseOff32x32;
-        public virtual Image GetSmallDisconnectedLogsImage(Guid analogyComponentId) => Resources.DatabaseOff16x16;
+        public virtual Image GetRealTimeConnectedLargeImage(Guid analogyComponentId) => Resources.DatabaseOn32x32;
+        public virtual Image GetRealTimeConnectedSmallImage(Guid analogyComponentId) => Resources.DatabaseOn16x16;
+        public virtual Image GetRealTimeDisconnectedLargeImage(Guid analogyComponentId) => Resources.DatabaseOff32x32;
+        public virtual Image GetRealTimeDisconnectedSmallImage(Guid analogyComponentId) => Resources.DatabaseOff16x16;
     }
 }

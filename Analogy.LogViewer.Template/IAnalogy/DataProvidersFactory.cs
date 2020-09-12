@@ -7,7 +7,7 @@ namespace Analogy.LogViewer.Template
 {
     public abstract class DataProvidersFactory : IAnalogyDataProvidersFactory
     {
-        public virtual Guid FactoryId { get; set; } = PrimaryFactory.Id;
+        public abstract Guid FactoryId { get; set; }
         public abstract string Title { get; set; }
         public abstract IEnumerable<IAnalogyDataProvider> DataProviders { get; set; }
 

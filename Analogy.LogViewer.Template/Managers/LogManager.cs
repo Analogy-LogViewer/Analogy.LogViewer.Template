@@ -18,7 +18,7 @@ namespace Analogy.LogViewer.Template.Managers
             PendingMessages = new List<(AnalogyLogLevel level, string source, string message, string memberName, int lineNumber, string filePath)>();
         }
 
-        public void SetLogger(IAnalogyLogger logger)
+        public virtual void SetLogger(IAnalogyLogger logger)
         {
             Logger = logger;
             foreach ((AnalogyLogLevel level, string source, string message, string memberName, int lineNumber, string filePath) in PendingMessages)
@@ -53,7 +53,7 @@ namespace Analogy.LogViewer.Template.Managers
             }
         }
 
-        public void LogInformation(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
+        public virtual void LogInformation(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
         {
             if (Logger == null)
             {
@@ -63,7 +63,7 @@ namespace Analogy.LogViewer.Template.Managers
                 Logger.LogInformation(message, source, memberName, lineNumber, filePath);
         }
 
-        public void LogWarning(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
+        public virtual void LogWarning(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
         {
             if (Logger == null)
             {
@@ -73,7 +73,7 @@ namespace Analogy.LogViewer.Template.Managers
                 Logger.LogWarning(message, source, memberName, lineNumber, filePath);
         }
 
-        public void LogDebug(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
+        public virtual void LogDebug(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
         {
             if (Logger == null)
             {
@@ -83,7 +83,7 @@ namespace Analogy.LogViewer.Template.Managers
                 Logger.LogDebug(message, source, memberName, lineNumber, filePath);
         }
 
-        public void LogError(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
+        public virtual void LogError(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
         {
             if (Logger == null)
             {
@@ -93,7 +93,7 @@ namespace Analogy.LogViewer.Template.Managers
                 Logger.LogError(message, source, memberName, lineNumber, filePath);
         }
 
-        public void LogCritical(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
+        public virtual void LogCritical(string message, string source, string memberName = "", int lineNumber = 0, string filePath = "")
         {
             if (Logger == null)
             {
@@ -103,8 +103,7 @@ namespace Analogy.LogViewer.Template.Managers
                 Logger.LogCritical(message, source, memberName, lineNumber, filePath);
         }
 
-        public void LogException(string message, Exception ex, string source, string memberName = "", int lineNumber = 0,
-            string filePath = "")
+        public virtual void LogException(string message, Exception ex, string source, string memberName = "", int lineNumber = 0, string filePath = "")
         {
             if (Logger == null)
             {

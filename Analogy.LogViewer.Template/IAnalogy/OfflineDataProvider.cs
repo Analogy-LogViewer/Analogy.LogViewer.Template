@@ -34,26 +34,58 @@ namespace Analogy.LogViewer.Template
             ILogMessageCreatedHandler messagesHandler);
 
 
-        public abstract IEnumerable<FileInfo> GetSupportedFiles(DirectoryInfo dirInfo, bool recursiveLoad);
+        public IEnumerable<FileInfo> GetSupportedFiles(DirectoryInfo dirInfo, bool recursiveLoad) =>
+            GetSupportedFilesInternal(dirInfo, recursiveLoad);
        
         public virtual Task SaveAsync(List<AnalogyLogMessage> messages, string fileName) =>Task.CompletedTask;
 
-        public abstract bool CanOpenFile(string fileName);
-
+        public virtual bool CanOpenFile(string fileName) => SupportFormats.Any(pattern =>
+                CommonUtilities.Files.FilesPatternMatcher.StrictMatchPattern(pattern, fileName));
+        
         public virtual bool CanOpenAllFiles(IEnumerable<string> fileNames) => fileNames.All(CanOpenFile);
-    
-
-
+        
         public virtual Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             LogManager.Instance.SetLogger(logger);
             return Task.CompletedTask;
         }
 
-        public void MessageOpened(AnalogyLogMessage message)
+        public virtual void MessageOpened(AnalogyLogMessage message)
         {
-            throw new NotImplementedException();
+           //noop
         }
+        protected virtual List<FileInfo> GetSupportedFilesInternal(DirectoryInfo dirInfo, bool recursive)
+        {
+            List<FileInfo> files = new List<FileInfo>();
+            foreach (string pattern in SupportFormats)
+            {
+                try
+                {
+                    files.AddRange(dirInfo.GetFiles(pattern).ToList());
+                }
+                catch (Exception ex)
+                {
+                    LogManager.Instance.LogException($"Error getting files from directory with pattern {pattern}", ex,
+                        nameof(GetSupportedFilesInternal));
+                }
 
+            }
+
+            if (!recursive)
+                return files;
+            try
+            {
+                foreach (DirectoryInfo dir in dirInfo.GetDirectories())
+                {
+                    files.AddRange(GetSupportedFilesInternal(dir, true));
+                }
+            }
+            catch (Exception ex)
+            {
+                LogManager.Instance.LogException($"Error getting files from directory", ex, nameof(GetSupportedFilesInternal));
+            }
+
+            return files;
+        }
     }
 }
