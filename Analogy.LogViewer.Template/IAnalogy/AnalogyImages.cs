@@ -9,6 +9,8 @@ namespace Analogy.LogViewer.Template.IAnalogy
     {
         public virtual Image GetLargeBookmarksImage(Guid analogyComponentId) => Resources.Bookmark32x32;
         public virtual Image GetSmallBookmarksImage(Guid analogyComponentId) => Resources.Bookmark16x16;
+        public virtual Image GetLargeOpenFileImage(Guid analogyComponentId) => Resources.OpenFile32x32;
+        public virtual Image GetSmallOpenFileImage(Guid analogyComponentId) => Resources.OpenFile16x16;
         public virtual Image GetLargeOpenFolderImage(Guid analogyComponentId) => Resources.OpenFolder_32x32;
         public virtual Image GetSmallOpenFolderImage(Guid analogyComponentId) => Resources.OpenFolder_16x16;
         public virtual Image GetLargeRecentFoldersImage(Guid analogyComponentId) => Resources.RecentFolders32x32;
