@@ -22,7 +22,7 @@ namespace Analogy.LogViewer.Template
         public virtual string FileOpenDialogFilters { get; set; } = string.Empty;
         public virtual string FileSaveDialogFilters { get; set; } = string.Empty;
         public virtual IEnumerable<string> SupportFormats { get; set; } = Array.Empty<string>();
-        public virtual string InitialFolderFullPath { get; } = string.Empty;
+        public virtual string InitialFolderFullPath { get; set; } = string.Empty;
         public virtual bool UseCustomColors { get; set; } = false;
         public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
