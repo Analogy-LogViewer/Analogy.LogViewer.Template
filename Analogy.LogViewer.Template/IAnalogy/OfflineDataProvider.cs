@@ -15,13 +15,13 @@ namespace Analogy.LogViewer.Template
     {
         public virtual Image SmallImage { get; set; } = Resources.Analogy16x16;
         public virtual Image LargeImage { get; set; } = Resources.Analogy32x32;
-        public virtual bool DisableFilePoolingOption { get; set; } = false;
+        public virtual bool DisableFilePoolingOption { get; set; }
         public abstract Guid Id { get; set; }
         public virtual string OptionalTitle { get; set; } = "Offline Parser";
         public virtual bool CanSaveToLogFile { get; set; } = false;
         public virtual string FileOpenDialogFilters { get; set; } = string.Empty;
         public virtual string FileSaveDialogFilters { get; set; } = string.Empty;
-        public virtual IEnumerable<string> SupportFormats { get; set; } = new List<string>(0);
+        public virtual IEnumerable<string> SupportFormats { get; set; } = Array.Empty<string>();
         public virtual string InitialFolderFullPath { get; } = string.Empty;
         public virtual bool UseCustomColors { get; set; } = false;
         public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
