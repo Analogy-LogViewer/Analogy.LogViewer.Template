@@ -18,12 +18,12 @@ namespace Analogy.LogViewer.Template
         public virtual bool DisableFilePoolingOption { get; set; }
         public abstract Guid Id { get; set; }
         public virtual string? OptionalTitle { get; set; } = "Offline Parser";
-        public virtual bool CanSaveToLogFile { get; set; } = false;
+        public virtual bool CanSaveToLogFile { get; set; }
         public virtual string FileOpenDialogFilters { get; set; } = string.Empty;
         public virtual string FileSaveDialogFilters { get; set; } = string.Empty;
         public virtual IEnumerable<string> SupportFormats { get; set; } = Array.Empty<string>();
         public virtual string InitialFolderFullPath { get; } = string.Empty;
-        public virtual bool UseCustomColors { get; set; } = false;
+        public virtual bool UseCustomColors { get; set; }
         public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
@@ -72,7 +72,9 @@ namespace Analogy.LogViewer.Template
             }
 
             if (!recursive)
+            {
                 return files;
+            }
             try
             {
                 foreach (DirectoryInfo dir in dirInfo.GetDirectories())

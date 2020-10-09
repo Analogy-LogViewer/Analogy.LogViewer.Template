@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.LogViewer.Template.Managers;
+using Analogy.LogViewer.Template.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
-using Analogy.Interfaces;
-using Analogy.LogViewer.Template.Managers;
-using Analogy.LogViewer.Template.Properties;
 
 namespace Analogy.LogViewer.Template
 {
     public abstract class OnlineDataProvider : IAnalogyRealTimeDataProvider
     {
-        public virtual IAnalogyOfflineDataProvider? FileOperationsHandler { get; set; } = null;
+        public virtual IAnalogyOfflineDataProvider? FileOperationsHandler { get; set; }
         public virtual event EventHandler<AnalogyDataSourceDisconnectedArgs>? OnDisconnected;
         public virtual event EventHandler<AnalogyLogMessageArgs>? OnMessageReady;
         public virtual event EventHandler<AnalogyLogMessagesArgs>? OnManyMessagesReady;
-        public virtual bool UseCustomColors { get; set; } = false;
+        public virtual bool UseCustomColors { get; set; }
         public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
@@ -43,7 +43,7 @@ namespace Analogy.LogViewer.Template
 
         public abstract Task StopReceiving();
 
-        protected void Disconnected(object sender,AnalogyDataSourceDisconnectedArgs args) => OnDisconnected?.Invoke(sender, args);
+        protected void Disconnected(object sender, AnalogyDataSourceDisconnectedArgs args) => OnDisconnected?.Invoke(sender, args);
         protected void MessageReady(object sender, AnalogyLogMessageArgs message) => OnMessageReady?.Invoke(sender, message);
         protected void MessagesReady(object sender, AnalogyLogMessagesArgs messages) => OnManyMessagesReady?.Invoke(sender, messages);
     }
