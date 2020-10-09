@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using System;
 using System.Collections.Generic;
-using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.Template.Managers
 {
     public class LogManager : IAnalogyLogger
     {
-        private static Lazy<LogManager> _instance = new Lazy<LogManager>();
+        private static readonly Lazy<LogManager> _instance = new Lazy<LogManager>();
         public static LogManager Instance => _instance.Value;
-        private IAnalogyLogger Logger { get; set; }
+        private IAnalogyLogger? Logger { get; set; }
         private List<(AnalogyLogLevel level, string source, string message, string memberName, int lineNumber, string filePath)> PendingMessages { get; set; }
         public LogManager()
         {

@@ -13,11 +13,11 @@ namespace Analogy.LogViewer.Template
 {
     public abstract class OfflineDataProvider : IAnalogyOfflineDataProvider
     {
-        public virtual Image SmallImage { get; set; } = Resources.Analogy16x16;
-        public virtual Image LargeImage { get; set; } = Resources.Analogy32x32;
+        public virtual Image? SmallImage { get; set; } = Resources.Analogy16x16;
+        public virtual Image? LargeImage { get; set; } = Resources.Analogy32x32;
         public virtual bool DisableFilePoolingOption { get; set; }
         public abstract Guid Id { get; set; }
-        public virtual string OptionalTitle { get; set; } = "Offline Parser";
+        public virtual string? OptionalTitle { get; set; } = "Offline Parser";
         public virtual bool CanSaveToLogFile { get; set; } = false;
         public virtual string FileOpenDialogFilters { get; set; } = string.Empty;
         public virtual string FileSaveDialogFilters { get; set; } = string.Empty;
