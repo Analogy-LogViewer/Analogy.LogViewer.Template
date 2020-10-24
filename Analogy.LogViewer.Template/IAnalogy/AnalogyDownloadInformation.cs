@@ -62,9 +62,8 @@ namespace Analogy.LogViewer.Template
             }
         }
 
-        protected string? _installedVersionNumber;
-        public abstract string InstalledVersionNumber { get; set; }
-        
+        public abstract string InstalledVersionNumber { get; }
+
 
         /// <summary>
         ///     Returns version of the application currently installed on the user's PC.
@@ -75,13 +74,19 @@ namespace Analogy.LogViewer.Template
             {
                 try
                 {
+                    if (string.IsNullOrEmpty(InstalledVersionNumber))
+                    {
+                        Assembly assembly = Assembly.GetExecutingAssembly();
+                        FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+                        return new Version(fvi.FileVersion);
+                    }
                     return new Version(InstalledVersionNumber);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    LogManager.Instance.LogException($"Error getting Version: {e.Message}", e, nameof(InstalledVersion));
                     Assembly assembly = Assembly.GetExecutingAssembly();
                     FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-                    _installedVersionNumber = fvi.FileVersion;
                     return new Version(fvi.FileVersion);
                 }
             }
@@ -129,12 +134,12 @@ namespace Analogy.LogViewer.Template
                         }
                     }
                 }
-                IsUpdateAvailable = LatestVersion!=null && LatestVersion > InstalledVersion;
+                IsUpdateAvailable = LatestVersion != null && LatestVersion > InstalledVersion;
                 return IsUpdateAvailable;
             }
             catch (Exception ex)
             {
-                LogManager.Instance.LogException($"Unable to check version: {ex.Message}",ex,nameof(CheckVersion));
+                LogManager.Instance.LogException($"Unable to check version: {ex.Message}", ex, nameof(CheckVersion));
                 return false;
             }
         }
