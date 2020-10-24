@@ -63,21 +63,8 @@ namespace Analogy.LogViewer.Template
         }
 
         protected string? _installedVersionNumber;
-        public virtual string InstalledVersionNumber
-        {
-            get
-            {
-                if (_installedVersionNumber != null)
-                {
-                    return _installedVersionNumber;
-                }
-                Assembly assembly = Assembly.GetExecutingAssembly();
-                FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-                _installedVersionNumber = fvi.FileVersion;
-                return _installedVersionNumber;
-            }
-
-        }
+        public abstract string InstalledVersionNumber { get; set; }
+        
 
         /// <summary>
         ///     Returns version of the application currently installed on the user's PC.
