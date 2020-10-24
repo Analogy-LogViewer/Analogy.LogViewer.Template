@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Analogy.Interfaces.DataTypes;
 
-namespace Analogy.LogViewer.Template.IAnalogy
+namespace Analogy.LogViewer.Template
 {   
     /// <summary>
      ///Object of this class gives you all the details about the update useful in handling the update logic yourself.
