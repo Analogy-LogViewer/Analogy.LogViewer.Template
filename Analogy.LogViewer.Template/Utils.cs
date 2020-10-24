@@ -13,18 +13,40 @@ namespace Analogy.LogViewer.Template
         /// Get latest release info
         ///  </summary>
         ///  <param name="repositoryPath">url to repository (e.g: "https://api.github.com/repos/Analogy-LogViewer/Analogy.LogViewer")</param>
-        ///  <param name="forceUpdate"></param>
+        ///  <param name="userAgent"></param>
+        ///  <param name="optionalGithubToken"></param>
         ///  <param name="lastUpdate"></param>
         ///  <returns></returns>
-        public static async Task<(bool newData, GithubObjects.GithubReleaseEntry? release)> CheckVersion(string repositoryPath,string userAgent,string githubToken, bool forceUpdate,DateTime lastUpdate)
+        public static async Task<(bool newData, GithubObjects.GithubReleaseEntry? release)> CheckVersion(string repositoryPath,string userAgent,string optionalGithubToken, DateTime lastUpdate)
         {
-            var (newData, entries) = await Analogy.CommonUtilities.Web.Utils.GetAsync<GithubObjects.GithubReleaseEntry[]>(repositoryPath + "/releases",userAgent,githubToken ,lastUpdate);
+            var (newData, entries) = await Analogy.CommonUtilities.Web.Utils.GetAsync<GithubObjects.GithubReleaseEntry[]>(repositoryPath + "/releases",userAgent, optionalGithubToken, lastUpdate);
             if (entries != null)
             {
                 GithubObjects.GithubReleaseEntry? release = entries.OrderByDescending(r => r.Published).FirstOrDefault();
                 return (newData, release);
             }
             return (false, null);
+        }
+
+        ///  <summary>
+        /// Get latest release info
+        ///  </summary>
+        ///  <param name="repositoryPath">url to repository (e.g: "https://api.github.com/repos/Analogy-LogViewer/Analogy.LogViewer")</param>
+        ///  <param name="userAgent"></param>
+        ///  <param name="optionalGithubToken"></param>
+        ///  <returns></returns>
+        public static async Task<(bool newData, GithubObjects.GithubReleaseEntry[] release)> GetAllReleases(string repositoryPath, string userAgent, string optionalGithubToken)
+        {
+            try
+            {
+                var (newData, entries) = await Analogy.CommonUtilities.Web.Utils.GetAsync<GithubObjects.GithubReleaseEntry[]>(repositoryPath + "/releases", userAgent, optionalGithubToken, DateTime.MinValue);
+                return (newData, entries);
+            }
+            catch (Exception)
+            {
+                return (false, new GithubObjects.GithubReleaseEntry[0]);
+            }
+       
         }
     }
 }
