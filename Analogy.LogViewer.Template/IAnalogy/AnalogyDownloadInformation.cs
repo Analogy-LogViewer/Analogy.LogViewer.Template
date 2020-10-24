@@ -29,19 +29,19 @@ namespace Analogy.LogViewer.Template
         /// <summary>
         /// If new update is available then returns true otherwise false.
         /// </summary>
-        public abstract bool IsUpdateAvailable { get; set; }
+        public virtual bool IsUpdateAvailable { get; set; }
 
         /// <summary>
         /// Download URL of the update file.
         /// </summary>
-        public abstract string? DownloadURL { get; set; }
+        public virtual string? DownloadURL { get; set; }
 
         /// <summary>
         /// URL of the webpage specifying changes in the new update.
         /// </summary>
-        public abstract string? ChangeLogURL { get; set; }
+        public virtual string? ChangeLogURL { get; set; }
 
-        public abstract string? LatestVersionNumber { get; set; }
+        public virtual string? LatestVersionNumber { get; set; }
         /// <summary>
         /// Returns newest version of the application available to download.
         /// </summary>
