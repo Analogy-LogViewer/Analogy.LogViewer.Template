@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using Analogy.Interfaces.DataTypes;
+using Analogy.LogViewer.Template.Managers;
 
 namespace Analogy.LogViewer.Template
-{   
+{
     /// <summary>
-     ///Object of this class gives you all the details about the update useful in handling the update logic yourself.
-     /// </summary>
+    ///Object of this class gives you all the details about the update useful in handling the update logic yourself.
+    /// </summary>
     [Serializable]
     public abstract class AnalogyDownloadInformation : IAnalogyDownloadInformation
     {
@@ -117,5 +119,38 @@ namespace Analogy.LogViewer.Template
         ///Hash algorithm that generated the checksum.
         /// </summary>
         public virtual string? HashingAlgorithm { get; set; }
+
+        public abstract TargetFrameworkAttribute CurrentFrameworkAttribute { get; set; }
+
+        protected abstract string RepositoryURL { get; set; }
+        public async Task<bool> CheckVersion()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(LatestVersionNumber))
+                {
+                    var (_, release) = await Analogy.CommonUtilities.Web.Utils.CheckVersion(RepositoryURL,
+                        "Analogy Log Viewer Example", "", DateTime.MinValue);
+                    if (release != null)
+                    {
+                        LatestVersionNumber = release.TagName.Substring(1);
+                        ChangeLogURL = release.HtmlUrl;
+                        var matchingAsset = Analogy.CommonUtilities.Web.Utils.GetMatchingAsset(release, CurrentFrameworkAttribute);
+                        if (matchingAsset != null)
+                        {
+                            DownloadURL = matchingAsset.BrowserDownloadUrl;
+                        }
+                    }
+                }
+                IsUpdateAvailable = LatestVersion!=null && LatestVersion > InstalledVersion;
+                return IsUpdateAvailable;
+            }
+            catch (Exception ex)
+            {
+                LogManager.Instance.LogException($"Unable to check version: {ex.Message}",ex,nameof(CheckVersion));
+                return false;
+            }
+        }
+
     }
 }
