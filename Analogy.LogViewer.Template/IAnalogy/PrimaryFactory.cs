@@ -19,7 +19,7 @@ namespace Analogy.LogViewer.Template
         public virtual Image? SmallImage { get; set; } = Resources.Analogy16x16;
         public virtual Image? LargeImage { get; set; } = Resources.Analogy32x32;
 
-        public void RegisterNotificationCallback(INotificationReporter notificationReporter)
+        public virtual void RegisterNotificationCallback(INotificationReporter notificationReporter)
         => NotificationManager.Instance.SetReporter(notificationReporter);
 
     }
