@@ -20,7 +20,7 @@ namespace Analogy.LogViewer.Template
         /// <summary>
         /// ID of the primary Factory it belongs to
         /// </summary>
-        public abstract Guid PrimaryFactoryId { get; set; }
+        public abstract Guid FactoryId { get; set; }
 
         /// <summary>
         /// The component title/name
