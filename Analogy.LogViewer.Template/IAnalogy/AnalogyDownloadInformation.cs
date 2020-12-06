@@ -50,7 +50,10 @@ namespace Analogy.LogViewer.Template
             get
             {
                 if (LatestVersionNumber == null)
+                {
                     return null;
+                }
+
                 try
                 {
                     return new Version(LatestVersionNumber);

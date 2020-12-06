@@ -5,6 +5,7 @@ using Analogy.LogViewer.Template.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace Analogy.LogViewer.Template
 {
@@ -15,6 +16,7 @@ namespace Analogy.LogViewer.Template
         public virtual IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = ChangeLogList.GetChangeLog();
         public virtual IEnumerable<string> Contributors { get; set; } = new List<string> { "Lior Banai" };
         public virtual string About { get; set; } = "Log Parser for Analogy Log Viewer";//override this
+        public virtual IEnumerable<string>? AdditionalProbingLocation { get; set; } = Enumerable.Empty<string>();
 
         public virtual Image? SmallImage { get; set; } = Resources.Analogy16x16;
         public virtual Image? LargeImage { get; set; } = Resources.Analogy32x32;

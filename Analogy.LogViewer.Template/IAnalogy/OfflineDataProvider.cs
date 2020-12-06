@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Analogy.Interfaces.DataTypes;
 
 namespace Analogy.LogViewer.Template
 {
@@ -32,8 +33,8 @@ namespace Analogy.LogViewer.Template
 
         public abstract Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token,
             ILogMessageCreatedHandler messagesHandler);
-
-
+        public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Offline Data Provider", "Read a static list of messages (in most cases the source is a log file)", "");
+        public virtual IEnumerable<string> HideColumns() => Enumerable.Empty<string>();
         public IEnumerable<FileInfo> GetSupportedFiles(DirectoryInfo dirInfo, bool recursiveLoad) =>
             GetSupportedFilesInternal(dirInfo, recursiveLoad);
 
