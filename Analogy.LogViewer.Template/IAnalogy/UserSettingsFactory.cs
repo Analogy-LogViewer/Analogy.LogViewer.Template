@@ -14,7 +14,7 @@ namespace Analogy.LogViewer.Template
         public abstract UserControl DataProviderSettings { get; set; }
         public virtual Image? SmallImage { get; set; } = Resources.Settings16x16;
         public virtual Image? LargeImage { get; set; } = Resources.Settings32x32;
-        public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("User Setting", "Data Provider's User Setting", "");
+        public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("User Setting", "Data Provider's User Setting", "", null, null);
         public abstract Guid FactoryId { get; set; }
         public abstract Guid Id { get; set; }
 

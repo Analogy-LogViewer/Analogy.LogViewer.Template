@@ -1,4 +1,5 @@
 ﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Template.Managers;
 using Analogy.LogViewer.Template.Properties;
 using System;
@@ -6,7 +7,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
-using Analogy.Interfaces.DataTypes;
 
 namespace Analogy.LogViewer.Template
 {
@@ -17,13 +17,13 @@ namespace Analogy.LogViewer.Template
         public virtual event EventHandler<AnalogyLogMessageArgs>? OnMessageReady;
         public virtual event EventHandler<AnalogyLogMessagesArgs>? OnManyMessagesReady;
         public virtual bool UseCustomColors { get; set; }
-        public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Online Data Provider", "Supply a stream of messages", "");
+        public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Online Data Provider", "Supply a stream of messages", "", null, null);
 
         public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
-        public virtual IEnumerable<string> HideColumns()=>Enumerable.Empty<string>();
-        
+        public virtual IEnumerable<string> HideColumns() => Enumerable.Empty<string>();
+
         public virtual (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
         public abstract Guid Id { get; set; }
