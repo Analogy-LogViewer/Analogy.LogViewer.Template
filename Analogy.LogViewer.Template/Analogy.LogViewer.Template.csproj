@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<TargetFrameworks>net471;net472;netcoreapp3.1</TargetFrameworks>
+		<TargetFrameworks>net5.0-windows;net471;net472;netcoreapp3.1</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<OutputType>Library</OutputType>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -21,7 +21,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>Template implementation to be used as base implementation</PackageReleaseNotes>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<Version>1.8.3.2</Version>
+		<Version>1.9.0</Version>
 		<Nullable>enable</Nullable>
 		<LangVersion>8.0</LangVersion>
 	</PropertyGroup>
