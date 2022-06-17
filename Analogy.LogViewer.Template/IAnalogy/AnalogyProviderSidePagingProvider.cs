@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Template.Managers;
+using Analogy.LogViewer.Template.Properties;
 
 namespace Analogy.LogViewer.Template.IAnalogy
 {
     public abstract class AnalogyProviderSidePagingProvider : IAnalogyProviderSidePagingProvider
     {
-        public Guid Id { get; set; }
-        public Image? SmallImage { get; set; }
-        public Image? LargeImage { get; set; }
-        public string? OptionalTitle { get; set; }
-        public bool UseCustomColors { get; set; }
-        public AnalogyToolTip? ToolTip { get; set; }
+        public abstract Guid Id { get; set; }
+        public virtual Image? SmallImage { get; set; } = Resources.Analogy16x16;
+        public virtual Image? LargeImage { get; set; } = Resources.Analogy32x32;
+        public virtual string? OptionalTitle { get; set; }
+        public virtual bool UseCustomColors { get; set; }
+        public virtual AnalogyToolTip? ToolTip { get; set; }
         public virtual Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             LogManager.Instance.SetLogger(logger);
