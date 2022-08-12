@@ -21,7 +21,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>Template implementation to be used as base implementation</PackageReleaseNotes>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<Version>3.2.3</Version>
+		<Version>3.2.4</Version>
 		<Nullable>enable</Nullable>
 		<LangVersion>8.0</LangVersion>
 	</PropertyGroup>
