@@ -32,7 +32,7 @@ namespace Analogy.LogViewer.Template
         public virtual Image? ConnectedSmallImage { get; set; } = Resources.DatabaseOn16x16;
         public virtual Image? DisconnectedLargeImage { get; set; } = Resources.DatabaseOff32x32;
         public virtual Image? DisconnectedSmallImage { get; set; } = Resources.DatabaseOff16x16;
-        public virtual Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public virtual Task InitializeDataProvider(IAnalogyLogger logger)
         {
             LogManager.Instance.SetLogger(logger);
             return Task.CompletedTask;

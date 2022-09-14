@@ -45,7 +45,7 @@ namespace Analogy.LogViewer.Template
 
         public virtual bool CanOpenAllFiles(IEnumerable<string> fileNames) => fileNames.All(CanOpenFile);
 
-        public virtual Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public virtual Task InitializeDataProvider(IAnalogyLogger logger)
         {
             LogManager.Instance.SetLogger(logger);
             return Task.CompletedTask;

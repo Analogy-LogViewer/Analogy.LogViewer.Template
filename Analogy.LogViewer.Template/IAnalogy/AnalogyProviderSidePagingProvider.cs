@@ -20,7 +20,7 @@ namespace Analogy.LogViewer.Template.IAnalogy
         public virtual string? OptionalTitle { get; set; }
         public virtual bool UseCustomColors { get; set; }
         public virtual AnalogyToolTip? ToolTip { get; set; }
-        public virtual Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public virtual Task InitializeDataProvider(IAnalogyLogger logger)
         {
             LogManager.Instance.SetLogger(logger);
             return Task.CompletedTask;
