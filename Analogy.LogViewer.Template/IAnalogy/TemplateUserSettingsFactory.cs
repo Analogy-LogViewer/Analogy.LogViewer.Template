@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Analogy.LogViewer.Template
 {
-    public abstract class UserSettingsFactory : IAnalogyDataProviderSettings
+    public abstract class TemplateUserSettingsFactory : IAnalogyDataProviderSettings
     {
         public virtual string Title { get; set; } = "User Settings";
         public abstract UserControl DataProviderSettings { get; set; }
