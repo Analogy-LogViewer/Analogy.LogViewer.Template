@@ -18,6 +18,8 @@ namespace Analogy.LogViewer.Template
         public abstract Guid FactoryId { get; set; }
         public abstract Guid Id { get; set; }
 
+        public abstract void CreateUserControl(IAnalogyLogger logger);
+       
         public abstract Task SaveSettingsAsync();
 
     }
