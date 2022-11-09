@@ -52,5 +52,8 @@ namespace Analogy.LogViewer.Template
         protected void Disconnected(object sender, AnalogyDataSourceDisconnectedArgs args) => OnDisconnected?.Invoke(sender, args);
         protected void MessageReady(object sender, AnalogyLogMessageArgs message) => OnMessageReady?.Invoke(sender, message);
         protected void MessagesReady(object sender, AnalogyLogMessagesArgs messages) => OnManyMessagesReady?.Invoke(sender, messages);
+
+        public abstract Task ShutDown();
+
     }
 }
