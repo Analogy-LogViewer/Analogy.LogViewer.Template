@@ -13,7 +13,7 @@
 		<Authors>Lior Banai</Authors>
 		<Company>Analogy.LogViewer</Company>
 		<Description>Template implementation to be used as base implementation</Description>
-		<Copyright>Lior Banai © 2020-2022</Copyright>
+		<Copyright>Lior Banai © 2020-2023</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Template</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Template</RepositoryUrl>
@@ -21,14 +21,14 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>Template implementation to be used as base implementation</PackageReleaseNotes>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<Version>3.5.0</Version>
+		<Version>3.6.0</Version>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.CommonUtilities" Version="3.5.0" />
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="3.5.0" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="3.6.0" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="3.6.0" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
