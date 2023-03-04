@@ -21,14 +21,14 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>Template implementation to be used as base implementation</PackageReleaseNotes>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<Version>3.7.0</Version>
+		<Version>3.8.0</Version>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.CommonUtilities" Version="3.7.0" />
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="3.7.0" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="3.8.0" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="3.8.0" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

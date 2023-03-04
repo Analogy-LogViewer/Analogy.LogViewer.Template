@@ -14,6 +14,8 @@ namespace Analogy.LogViewer.Template
 {
     public abstract class OfflineDataProvider : IAnalogyOfflineDataProvider
     {
+        public virtual event EventHandler<AnalogyStartedProcessingArgs> ProcessingStarted;
+        public virtual event EventHandler<AnalogyEndProcessingArgs> ProcessingFinished;
         public virtual Image? SmallImage { get; set; } = Resources.Analogy16x16;
         public virtual Image? LargeImage { get; set; } = Resources.Analogy32x32;
         public virtual bool DisableFilePoolingOption { get; set; }
@@ -25,6 +27,9 @@ namespace Analogy.LogViewer.Template
         public virtual IEnumerable<string> SupportFormats { get; set; } = Array.Empty<string>();
         public virtual string? InitialFolderFullPath { get; set; } = string.Empty;
         public virtual bool UseCustomColors { get; set; }
+
+
+
         public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
@@ -89,6 +94,15 @@ namespace Analogy.LogViewer.Template
             }
 
             return files;
+        }
+        
+        protected void RaiseProcessingStarted(AnalogyStartedProcessingArgs args)
+        {
+            ProcessingStarted?.Invoke(this,args);
+        }
+        protected void RaiseProcessingFinished(AnalogyEndProcessingArgs args)
+        {
+            ProcessingFinished?.Invoke(this, args);
         }
     }
 }
