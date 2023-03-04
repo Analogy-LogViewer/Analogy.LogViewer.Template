@@ -26,7 +26,7 @@ namespace Analogy.LogViewer.Template.IAnalogy
             return Task.CompletedTask;
         }
 
-        public virtual void MessageOpened(AnalogyLogMessage message)
+        public virtual void MessageOpened(IAnalogyLogMessage message)
         {
         }
 
@@ -39,7 +39,7 @@ namespace Analogy.LogViewer.Template.IAnalogy
 
         public virtual IEnumerable<string> HideColumns() => Enumerable.Empty<string>();
 
-        public abstract Task<IEnumerable<AnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount,FilterCriteria filterCriteria,
+        public abstract Task<IEnumerable<IAnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount,FilterCriteria filterCriteria,
             CancellationToken token, ILogMessageCreatedHandler messagesHandler);
 
 

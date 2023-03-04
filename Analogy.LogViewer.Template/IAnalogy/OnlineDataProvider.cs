@@ -38,7 +38,7 @@ namespace Analogy.LogViewer.Template
             return Task.CompletedTask;
         }
 
-        public virtual void MessageOpened(AnalogyLogMessage message)
+        public virtual void MessageOpened(IAnalogyLogMessage message)
         {
             //noop
         }
