@@ -1,4 +1,4 @@
-# Analogy.LogViewer.Template     [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6817feeac1e14856b9208c3baf12b940)](https://www.codacy.com/gh/Analogy-LogViewer/Analogy.LogViewer.Template/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Analogy-LogViewer/Analogy.LogViewer.Template&amp;utm_campaign=Badge_Grade)  <img src="./Assets/AnalogyBanner512x512.jpg" align="right" width="155px" height="155px">
+# Analogy.LogViewer.Template    <img src="./Assets/AnalogyBanner512x512.jpg" align="right" width="155px" height="155px">
 
 <p align="center">
 
