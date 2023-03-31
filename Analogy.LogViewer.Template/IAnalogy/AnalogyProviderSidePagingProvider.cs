@@ -34,10 +34,9 @@ namespace Analogy.LogViewer.Template.IAnalogy
             => (Color.Empty, Color.Empty);
 
 
-        public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
-            => Array.Empty<(string, string)>();
-
-        public virtual IEnumerable<string> HideColumns() => Enumerable.Empty<string>();
+        public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders() => Array.Empty<(string, string)>();
+        public virtual IEnumerable<AnalogyLogMessagePropertyName> HideExistingColumns() => Enumerable.Empty<AnalogyLogMessagePropertyName>();
+        public virtual IEnumerable<string> HideAdditionalColumns() => Enumerable.Empty<string>();
 
         public abstract Task<IEnumerable<IAnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount,FilterCriteria filterCriteria,
             CancellationToken token, ILogMessageCreatedHandler messagesHandler);

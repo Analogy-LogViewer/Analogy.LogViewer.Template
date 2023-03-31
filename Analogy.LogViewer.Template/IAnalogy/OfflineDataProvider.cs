@@ -35,11 +35,14 @@ namespace Analogy.LogViewer.Template
 
         public virtual (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
+        public virtual IEnumerable<AnalogyLogMessagePropertyName> HideExistingColumns() => Enumerable.Empty<AnalogyLogMessagePropertyName>();
+
+        public virtual IEnumerable<string> HideAdditionalColumns() => Enumerable.Empty<string>();
 
         public abstract Task<IEnumerable<IAnalogyLogMessage>> Process(string fileName, CancellationToken token,
             ILogMessageCreatedHandler messagesHandler);
         public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Offline Data Provider", "Read a static list of messages (in most cases the source is a log file)", "", null, null);
-        public virtual IEnumerable<string> HideColumns() => Enumerable.Empty<string>();
+        
         public IEnumerable<FileInfo> GetSupportedFiles(DirectoryInfo dirInfo, bool recursiveLoad) =>
             GetSupportedFilesInternal(dirInfo, recursiveLoad);
 

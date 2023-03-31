@@ -22,7 +22,9 @@ namespace Analogy.LogViewer.Template
         public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
-        public virtual IEnumerable<string> HideColumns() => Enumerable.Empty<string>();
+        public virtual IEnumerable<AnalogyLogMessagePropertyName> HideExistingColumns() => Enumerable.Empty<AnalogyLogMessagePropertyName>();
+
+        public virtual IEnumerable<string> HideAdditionalColumns() => Enumerable.Empty<string>();
 
         public virtual (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
