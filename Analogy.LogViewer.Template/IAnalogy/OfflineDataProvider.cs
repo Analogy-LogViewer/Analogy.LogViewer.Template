@@ -75,7 +75,7 @@ namespace Analogy.LogViewer.Template
                 }
                 catch (Exception ex)
                 {
-                    LogManager.Instance.LogException($"Error getting files from directory with pattern {pattern}", ex,
+                    LogManager.Instance.LogError(ex, $"Error getting files from directory with pattern {pattern}", ex,
                         nameof(GetSupportedFilesInternal));
                 }
 
@@ -94,7 +94,7 @@ namespace Analogy.LogViewer.Template
             }
             catch (Exception ex)
             {
-                LogManager.Instance.LogException($"Error getting files from directory", ex, nameof(GetSupportedFilesInternal));
+                LogManager.Instance.LogError(ex, $"Error getting files from directory", ex, nameof(GetSupportedFilesInternal));
             }
 
             return files;

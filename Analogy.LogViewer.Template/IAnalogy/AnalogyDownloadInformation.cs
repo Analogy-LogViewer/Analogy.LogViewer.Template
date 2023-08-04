@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Template.Managers;
+using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Template
 {
@@ -87,7 +88,7 @@ namespace Analogy.LogViewer.Template
                 }
                 catch (Exception e)
                 {
-                    LogManager.Instance.LogException($"Error getting Version: {e.Message}", e, nameof(InstalledVersion));
+                    LogManager.Instance.LogError(e, $"Error getting Version: {e.Message}", e, nameof(InstalledVersion));
                     Assembly assembly = Assembly.GetExecutingAssembly();
                     FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
                     return new Version(fvi.FileVersion);
@@ -142,7 +143,7 @@ namespace Analogy.LogViewer.Template
             }
             catch (Exception ex)
             {
-                LogManager.Instance.LogException($"Unable to check version: {ex.Message}", ex, nameof(CheckVersion));
+                LogManager.Instance.LogError(ex,$"Unable to check version: {ex.Message}", ex, nameof(CheckVersion));
                 return false;
             }
         }
