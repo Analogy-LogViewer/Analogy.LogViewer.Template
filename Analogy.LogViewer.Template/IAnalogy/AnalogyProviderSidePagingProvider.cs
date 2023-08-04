@@ -9,6 +9,7 @@ using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Template.Managers;
 using Analogy.LogViewer.Template.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Template.IAnalogy
 {
@@ -20,7 +21,7 @@ namespace Analogy.LogViewer.Template.IAnalogy
         public virtual string? OptionalTitle { get; set; }
         public virtual bool UseCustomColors { get; set; }
         public virtual AnalogyToolTip? ToolTip { get; set; }
-        public virtual Task InitializeDataProvider(IAnalogyLogger logger)
+        public virtual Task InitializeDataProvider(ILogger logger)
         {
             LogManager.Instance.SetLogger(logger);
             return Task.CompletedTask;
@@ -42,7 +43,7 @@ namespace Analogy.LogViewer.Template.IAnalogy
             CancellationToken token, ILogMessageCreatedHandler messagesHandler);
 
 
-        public virtual Task ShutdownAsync(IAnalogyLogger logger)
+        public virtual Task ShutdownAsync(ILogger logger)
         {
             return Task.CompletedTask;
         }

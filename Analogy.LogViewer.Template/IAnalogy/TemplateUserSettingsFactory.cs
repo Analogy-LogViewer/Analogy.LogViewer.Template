@@ -1,6 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Template.Properties;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Analogy.LogViewer.Template
         public abstract Guid FactoryId { get; set; }
         public abstract Guid Id { get; set; }
 
-        public abstract void CreateUserControl(IAnalogyLogger logger);
+        public abstract void CreateUserControl(ILogger logger);
        
         public abstract Task SaveSettingsAsync();
 

@@ -5,18 +5,18 @@ using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Template.Managers
 {
-    public class LogManager : IAnalogyLogger
+    public class LogManager : ILogger
     {
         private static readonly Lazy<LogManager> _instance = new Lazy<LogManager>();
         public static LogManager Instance => _instance.Value;
-        private IAnalogyLogger? Logger { get; set; }
+        private ILogger? Logger { get; set; }
         private List<(AnalogyLogLevel level, string source, string message, string memberName, int lineNumber, string filePath)> PendingMessages { get; set; }
         public LogManager()
         {
             PendingMessages = new List<(AnalogyLogLevel level, string source, string message, string memberName, int lineNumber, string filePath)>();
         }
 
-        public virtual void SetLogger(IAnalogyLogger logger)
+        public virtual void SetLogger(ILogger logger)
         {
             Logger = logger;
             foreach ((AnalogyLogLevel level, string source, string message, string memberName, int lineNumber, string filePath) in PendingMessages)
@@ -46,7 +46,7 @@ namespace Analogy.LogViewer.Template.Managers
                     case AnalogyLogLevel.None:
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException();
+                        throw new ArgumentOutOfRangeException($"Invalid level {level}");
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace Analogy.LogViewer.Template.Managers
             }
             else
             {
-                Logger.LogException(message, ex, source, memberName, lineNumber, filePath);
+                Logger.LogError(message, ex, source, memberName, lineNumber, filePath);
             }
         }
 

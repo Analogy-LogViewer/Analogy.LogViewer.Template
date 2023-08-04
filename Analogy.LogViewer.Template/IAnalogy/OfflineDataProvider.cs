@@ -2,6 +2,7 @@
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Template.Managers;
 using Analogy.LogViewer.Template.Properties;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -53,7 +54,7 @@ namespace Analogy.LogViewer.Template
 
         public virtual bool CanOpenAllFiles(IEnumerable<string> fileNames) => fileNames.All(CanOpenFile);
 
-        public virtual Task InitializeDataProvider(IAnalogyLogger logger)
+        public virtual Task InitializeDataProvider(ILogger logger)
         {
             LogManager.Instance.SetLogger(logger);
             return Task.CompletedTask;
