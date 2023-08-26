@@ -16,11 +16,11 @@ namespace Analogy.LogViewer.Template.IAnalogy
     public abstract class AnalogyProviderSidePagingProvider : IAnalogyProviderSidePagingProvider
     {
         public abstract Guid Id { get; set; }
-        public virtual Image? SmallImage { get; set; } = Resources.Analogy16x16;
-        public virtual Image? LargeImage { get; set; } = Resources.Analogy32x32;
-        public virtual string? OptionalTitle { get; set; }
+        public virtual Image? LargeImage { get; set; } = Resources.ServerMode_32x32;
+        public virtual Image? SmallImage { get; set; } = Resources.ServerMode_16x16;
+        public virtual string? OptionalTitle { get; set; } = "Server Side Provider";
         public virtual bool UseCustomColors { get; set; }
-        public virtual AnalogyToolTip? ToolTip { get; set; }
+        public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Server Side Provider", "Server Side data Fetcher", "", null, null);
         public virtual Task InitializeDataProvider(ILogger logger)
         {
             LogManager.Instance.SetLogger(logger);
