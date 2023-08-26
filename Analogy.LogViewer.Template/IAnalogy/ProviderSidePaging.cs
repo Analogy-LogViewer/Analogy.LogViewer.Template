@@ -16,7 +16,7 @@ namespace Analogy.LogViewer.Template.IAnalogy
     {
         public abstract Guid Id { get; set; }
         public virtual string? OptionalTitle { get; set; } = "Server Side Provider";
-        public virtual bool UseCustomColors { get; set; } = false;
+        public virtual bool UseCustomColors { get; set; }
         public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Server Side Provider", "Server Side data Fetcher", "", null, null);
         public virtual Image? LargeImage { get; set; } = Resources.ServerMode_32x32;
         public virtual Image? SmallImage { get; set; } = Resources.ServerMode_16x16;
