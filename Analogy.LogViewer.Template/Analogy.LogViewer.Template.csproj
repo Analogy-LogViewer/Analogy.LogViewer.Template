@@ -21,7 +21,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReleaseNotes>Template implementation to be used as base implementation</PackageReleaseNotes>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<VersionPrefix>5.1.0.0</VersionPrefix>
+		<VersionPrefix>5.0.1.0</VersionPrefix>
 		<VersionSuffix></VersionSuffix>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
@@ -38,13 +38,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="PolySharp" Version="1.13.2">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
 	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net48' or '$(TargetFramework)' == 'net471' ">
-		<PackageReference Include="PolySharp" Version="1.12.1">
+		<PackageReference Include="PolySharp" Version="1.13.2">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
