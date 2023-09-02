@@ -2,15 +2,18 @@
 using Analogy.Interfaces.Factories;
 using Analogy.LogViewer.Template.Managers;
 using Analogy.LogViewer.Template.Properties;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Analogy.LogViewer.Template
 {
     public abstract class PrimaryFactory : IAnalogyFactory
     {
+        
         public abstract Guid FactoryId { get; set; }
         public virtual string Title { get; set; } = "Data Provider";//override this
         public virtual IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = ChangeLogList.GetChangeLog();
@@ -23,6 +26,11 @@ namespace Analogy.LogViewer.Template
 
         public virtual void RegisterNotificationCallback(INotificationReporter notificationReporter)
         => NotificationManager.Instance.SetReporter(notificationReporter);
-
+        public virtual Task InitializeFactory(IAnalogyFoldersAccess foldersAccess, ILogger logger)
+        {
+            FolderAccessManager.Instance.SetFolderAccess(foldersAccess);
+            LogManager.Instance.SetLogger(logger);
+            return Task.CompletedTask;
+        }
     }
 }
