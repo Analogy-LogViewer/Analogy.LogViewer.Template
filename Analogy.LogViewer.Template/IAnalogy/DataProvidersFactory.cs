@@ -10,6 +10,5 @@ namespace Analogy.LogViewer.Template
         public abstract Guid FactoryId { get; set; }
         public abstract string Title { get; set; }
         public abstract IEnumerable<IAnalogyDataProvider> DataProviders { get; set; }
-
     }
 }

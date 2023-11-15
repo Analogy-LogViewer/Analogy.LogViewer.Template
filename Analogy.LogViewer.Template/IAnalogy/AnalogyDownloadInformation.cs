@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Analogy.Interfaces.DataTypes;
+using Analogy.LogViewer.Template.Managers;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -6,9 +9,6 @@ using System.Reflection;
 using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
-using Analogy.Interfaces.DataTypes;
-using Analogy.LogViewer.Template.Managers;
-using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Template
 {
@@ -27,6 +27,7 @@ namespace Analogy.LogViewer.Template
         /// The component title/name
         /// </summary>
         public abstract string Name { get; set; }
+
         /// <summary>
         /// If new update is available then returns true otherwise false.
         /// </summary>
@@ -43,6 +44,7 @@ namespace Analogy.LogViewer.Template
         public virtual string? ChangeLogURL { get; set; }
 
         public virtual string? LatestVersionNumber { get; set; }
+
         /// <summary>
         /// Returns newest version of the application available to download.
         /// </summary>
@@ -67,7 +69,6 @@ namespace Analogy.LogViewer.Template
         }
 
         public abstract string InstalledVersionNumber { get; }
-
 
         /// <summary>
         ///     Returns version of the application currently installed on the user's PC.
@@ -143,10 +144,9 @@ namespace Analogy.LogViewer.Template
             }
             catch (Exception ex)
             {
-                LogManager.Instance.LogError(ex,$"Unable to check version: {ex.Message}", ex, nameof(CheckVersion));
+                LogManager.Instance.LogError(ex, $"Unable to check version: {ex.Message}", ex, nameof(CheckVersion));
                 return false;
             }
         }
-
     }
 }

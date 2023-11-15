@@ -20,14 +20,14 @@ namespace Analogy.LogViewer.Template
         public virtual bool UseCustomColors { get; set; }
         public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Online Data Provider", "Supply a stream of messages", "", null, null);
 
-        public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+        public virtual IEnumerable<(string OriginalHeader, string ReplacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
         public virtual IEnumerable<AnalogyLogMessagePropertyName> HideExistingColumns() => Enumerable.Empty<AnalogyLogMessagePropertyName>();
 
         public virtual IEnumerable<string> HideAdditionalColumns() => Enumerable.Empty<string>();
 
-        public virtual (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+        public virtual (Color BackgroundColor, Color ForegroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
         public abstract Guid Id { get; set; }
         public virtual string? OptionalTitle { get; set; } = "Online Data Receiver";
@@ -57,6 +57,5 @@ namespace Analogy.LogViewer.Template
         protected void MessagesReady(object sender, AnalogyLogMessagesArgs messages) => OnManyMessagesReady?.Invoke(sender, messages);
 
         public abstract Task ShutDown();
-
     }
 }

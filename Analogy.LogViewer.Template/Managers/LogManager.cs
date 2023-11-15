@@ -1,7 +1,7 @@
 ﻿using Analogy.Interfaces;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Template.Managers
 {
@@ -22,7 +22,6 @@ namespace Analogy.LogViewer.Template.Managers
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
         {
             Logger?.Log(logLevel, eventId, state, exception, formatter);
-
         }
 
         public bool IsEnabled(LogLevel logLevel)

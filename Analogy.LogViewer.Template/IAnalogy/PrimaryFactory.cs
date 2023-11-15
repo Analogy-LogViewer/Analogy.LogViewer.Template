@@ -13,7 +13,6 @@ namespace Analogy.LogViewer.Template
 {
     public abstract class PrimaryFactory : IAnalogyFactory
     {
-        
         public abstract Guid FactoryId { get; set; }
         public virtual string Title { get; set; } = "Data Provider";//override this
         public virtual IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = ChangeLogList.GetChangeLog();

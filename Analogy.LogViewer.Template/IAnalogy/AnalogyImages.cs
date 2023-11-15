@@ -1,11 +1,11 @@
-﻿using System;
-using System.Drawing;
-using Analogy.Interfaces;
+﻿using Analogy.Interfaces;
 using Analogy.LogViewer.Template.Properties;
+using System;
+using System.Drawing;
 
 namespace Analogy.LogViewer.Template.IAnalogy
 {
-   public class AnalogyImages:IAnalogyImages
+    public class AnalogyImages : IAnalogyImages
     {
         public virtual Image GetLargeBookmarksImage(Guid analogyComponentId) => Resources.Bookmark32x32;
         public virtual Image GetSmallBookmarksImage(Guid analogyComponentId) => Resources.Bookmark16x16;

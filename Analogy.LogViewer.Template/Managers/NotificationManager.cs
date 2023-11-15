@@ -11,7 +11,6 @@ namespace Analogy.LogViewer.Template.Managers
 
         public void SetReporter(INotificationReporter notificationReporter) => Reporter = notificationReporter;
 
-
         public void RaiseNotification(IAnalogyNotification notification, bool showAsPopup)
         {
             Reporter?.RaiseNotification(notification, showAsPopup);

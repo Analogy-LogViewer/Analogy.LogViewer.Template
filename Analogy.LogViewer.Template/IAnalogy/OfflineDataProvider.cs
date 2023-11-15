@@ -29,12 +29,10 @@ namespace Analogy.LogViewer.Template
         public virtual string? InitialFolderFullPath { get; set; } = string.Empty;
         public virtual bool UseCustomColors { get; set; }
 
-
-
-        public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+        public virtual IEnumerable<(string OriginalHeader, string ReplacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
-        public virtual (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+        public virtual (Color BackgroundColor, Color ForegroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
         public virtual IEnumerable<AnalogyLogMessagePropertyName> HideExistingColumns() => Enumerable.Empty<AnalogyLogMessagePropertyName>();
 
@@ -43,7 +41,7 @@ namespace Analogy.LogViewer.Template
         public abstract Task<IEnumerable<IAnalogyLogMessage>> Process(string fileName, CancellationToken token,
             ILogMessageCreatedHandler messagesHandler);
         public virtual AnalogyToolTip? ToolTip { get; set; } = new AnalogyToolTip("Offline Data Provider", "Read a static list of messages (in most cases the source is a log file)", "", null, null);
-        
+
         public IEnumerable<FileInfo> GetSupportedFiles(DirectoryInfo dirInfo, bool recursiveLoad) =>
             GetSupportedFilesInternal(dirInfo, recursiveLoad);
 
@@ -78,7 +76,6 @@ namespace Analogy.LogViewer.Template
                     LogManager.Instance.LogError(ex, $"Error getting files from directory with pattern {pattern}", ex,
                         nameof(GetSupportedFilesInternal));
                 }
-
             }
 
             if (!recursive)
@@ -99,10 +96,10 @@ namespace Analogy.LogViewer.Template
 
             return files;
         }
-        
+
         protected void RaiseProcessingStarted(AnalogyStartedProcessingArgs args)
         {
-            ProcessingStarted?.Invoke(this,args);
+            ProcessingStarted?.Invoke(this, args);
         }
         protected void RaiseProcessingFinished(AnalogyEndProcessingArgs args)
         {

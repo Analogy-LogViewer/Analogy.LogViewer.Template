@@ -26,7 +26,7 @@ namespace Analogy.LogViewer.Template.Managers
 
         public bool TryGetConfigurationFilePathFromAnyValidLocation(string configFile, out string finalLocation)
             => FoldersAccess.TryGetConfigurationFilePathFromAnyValidLocation(configFile, out finalLocation);
-       
+
         public string WriteableRootFolder => FoldersAccess.WriteableRootFolder;
         public string ConfigurationsFolder => FoldersAccess.ConfigurationsFolder;
     }

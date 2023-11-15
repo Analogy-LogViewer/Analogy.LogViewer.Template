@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using Analogy.LogViewer.Template.Managers;
+using Analogy.LogViewer.Template.Properties;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using Analogy.LogViewer.Template.Managers;
-using Analogy.LogViewer.Template.Properties;
-using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.Template.IAnalogy
 {
@@ -31,17 +31,15 @@ namespace Analogy.LogViewer.Template.IAnalogy
         {
         }
 
-        public virtual (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+        public virtual (Color BackgroundColor, Color ForegroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
 
-
-        public virtual IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders() => Array.Empty<(string, string)>();
+        public virtual IEnumerable<(string OriginalHeader, string ReplacementHeader)> GetReplacementHeaders() => Array.Empty<(string, string)>();
         public virtual IEnumerable<AnalogyLogMessagePropertyName> HideExistingColumns() => Enumerable.Empty<AnalogyLogMessagePropertyName>();
         public virtual IEnumerable<string> HideAdditionalColumns() => Enumerable.Empty<string>();
 
-        public abstract Task<IEnumerable<IAnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount,FilterCriteria filterCriteria,
+        public abstract Task<IEnumerable<IAnalogyLogMessage>> FetchMessages(int pageNumber, int pageCount, FilterCriteria filterCriteria,
             CancellationToken token, ILogMessageCreatedHandler messagesHandler);
-
 
         public virtual Task ShutdownAsync(ILogger logger)
         {
