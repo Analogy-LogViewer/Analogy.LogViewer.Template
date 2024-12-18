@@ -62,6 +62,9 @@ namespace Analogy.LogViewer.Template
         {
             //noop
         }
+        public virtual void MessageSelected(IAnalogyLogMessage message)
+        {
+        }
         protected virtual List<FileInfo> GetSupportedFilesInternal(DirectoryInfo dirInfo, bool recursive)
         {
             List<FileInfo> files = new List<FileInfo>();

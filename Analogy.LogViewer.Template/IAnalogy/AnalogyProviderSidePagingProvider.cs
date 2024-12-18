@@ -31,6 +31,9 @@ namespace Analogy.LogViewer.Template.IAnalogy
         {
         }
 
+        public virtual void MessageSelected(IAnalogyLogMessage message)
+        {
+        }
         public virtual (Color BackgroundColor, Color ForegroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
 

@@ -45,7 +45,9 @@ namespace Analogy.LogViewer.Template
         {
             //noop
         }
-
+        public virtual void MessageSelected(IAnalogyLogMessage message)
+        {
+        }
         public abstract Task<bool> CanStartReceiving();
 
         public abstract Task StartReceiving();
