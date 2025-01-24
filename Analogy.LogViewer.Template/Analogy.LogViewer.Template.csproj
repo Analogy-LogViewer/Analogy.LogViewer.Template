@@ -18,7 +18,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="8.0.0-a2" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="8.0.0" />
 		<PackageReference Include="Analogy.CommonUtilities" Version="8.0.0-a1" />
 	</ItemGroup>
 	<ItemGroup>
