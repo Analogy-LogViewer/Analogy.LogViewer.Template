@@ -2,6 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net9.0-windows;net8.0-windows;net48</TargetFrameworks>
+		<VersionPrefix>8.0.0.0</VersionPrefix>
+		<VersionSuffix>a1</VersionSuffix>
 		<UseWindowsForms>true</UseWindowsForms>
 		<OutputType>Library</OutputType>
 		<Authors>Lior Banai</Authors>
@@ -13,13 +15,11 @@
 		<PackageIcon>AnalogyBanner512x512.jpg</PackageIcon>
 		<PackageReleaseNotes>Template implementation to be used as base implementation</PackageReleaseNotes>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<VersionPrefix>7.2.0</VersionPrefix>
-		<VersionSuffix></VersionSuffix>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="7.2.0" />
-		<PackageReference Include="Analogy.CommonUtilities" Version="7.2.0" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="8.0.0-a2" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="8.0.0-a1" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Update="Properties\Resources.Designer.cs">
