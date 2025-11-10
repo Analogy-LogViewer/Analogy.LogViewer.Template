@@ -64,7 +64,8 @@ namespace Analogy.LogViewer.Template
     }
     public abstract class OnlineDataProviderWinforms : IAnalogyRealTimeDataProviderWinforms
     {
-        public virtual IAnalogyOfflineDataProvider? FileOperationsHandler { get; set; }
+        IAnalogyOfflineDataProvider? IAnalogyRealTimeDataProvider.FileOperationsHandler => FileOperationsHandler;
+        public virtual IAnalogyOfflineDataProviderWinforms? FileOperationsHandler { get; set; }
         public virtual event EventHandler<AnalogyDataSourceDisconnectedArgs>? OnDisconnected;
         public virtual event EventHandler<AnalogyLogMessageArgs>? OnMessageReady;
         public virtual event EventHandler<AnalogyLogMessagesArgs>? OnManyMessagesReady;
@@ -82,7 +83,6 @@ namespace Analogy.LogViewer.Template
         public virtual IEnumerable<AnalogyLogMessagePropertyName> HideExistingColumns() => Enumerable.Empty<AnalogyLogMessagePropertyName>();
 
         public virtual IEnumerable<string> HideAdditionalColumns() => Enumerable.Empty<string>();
-
         public virtual (Color BackgroundColor, Color ForegroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
         public abstract Guid Id { get; set; }
