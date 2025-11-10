@@ -1,13 +1,10 @@
-﻿using Analogy.Interfaces.DataTypes;
+﻿using Analogy.Interfaces;
 using Analogy.LogViewer.Template.Managers;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.Versioning;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Analogy.LogViewer.Template
@@ -19,12 +16,12 @@ namespace Analogy.LogViewer.Template
     public abstract class AnalogyDownloadInformation : IAnalogyDownloadInformation
     {
         /// <summary>
-        /// ID of the primary Factory it belongs to
+        /// ID of the primary Factory it belongs to.
         /// </summary>
         public abstract Guid FactoryId { get; set; }
 
         /// <summary>
-        /// The component title/name
+        /// The component title/name.
         /// </summary>
         public abstract string Name { get; set; }
 
