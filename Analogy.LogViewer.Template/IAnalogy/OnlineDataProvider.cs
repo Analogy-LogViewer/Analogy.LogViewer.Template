@@ -1,7 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
-using Analogy.Interfaces.Winforms;
-using Analogy.Interfaces.Winforms.DataTypes;
+using Analogy.Interfaces.WinForms;
+using Analogy.Interfaces.WinForms.DataTypes;
 using Analogy.LogViewer.Template.Managers;
 using Analogy.LogViewer.Template.Properties;
 using Microsoft.Extensions.Logging;
@@ -62,10 +62,10 @@ namespace Analogy.LogViewer.Template
 
         public abstract Task ShutDown();
     }
-    public abstract class OnlineDataProviderWinforms : IAnalogyRealTimeDataProviderWinforms
+    public abstract class OnlineDataProviderWinForms : IAnalogyRealTimeDataProviderWinForms
     {
         IAnalogyOfflineDataProvider? IAnalogyRealTimeDataProvider.FileOperationsHandler => FileOperationsHandler;
-        public virtual IAnalogyOfflineDataProviderWinforms? FileOperationsHandler { get; set; }
+        public virtual IAnalogyOfflineDataProviderWinForms? FileOperationsHandler { get; set; }
         public virtual event EventHandler<AnalogyDataSourceDisconnectedArgs>? OnDisconnected;
         public virtual event EventHandler<AnalogyLogMessageArgs>? OnMessageReady;
         public virtual event EventHandler<AnalogyLogMessagesArgs>? OnManyMessagesReady;
@@ -73,9 +73,9 @@ namespace Analogy.LogViewer.Template
         AnalogyToolTip? IAnalogyDataProvider.ToolTip
         {
             get => ToolTip;
-            set => ToolTip = value is AnalogyToolTipWinforms winforms ? winforms : null;
+            set => ToolTip = value is AnalogyToolTipWinForms WinForms ? WinForms : null;
         }
-        public virtual AnalogyToolTipWinforms? ToolTip { get; set; } = new AnalogyToolTipWinforms("Online Data Provider", "Supply a stream of messages", "", null, null);
+        public virtual AnalogyToolTipWinForms? ToolTip { get; set; } = new AnalogyToolTipWinForms("Online Data Provider", "Supply a stream of messages", "", null, null);
 
         public virtual IEnumerable<(string OriginalHeader, string ReplacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();

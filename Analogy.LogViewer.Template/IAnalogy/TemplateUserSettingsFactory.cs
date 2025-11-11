@@ -1,7 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
-using Analogy.Interfaces.Winforms;
-using Analogy.Interfaces.Winforms.DataTypes;
+using Analogy.Interfaces.WinForms;
+using Analogy.Interfaces.WinForms.DataTypes;
 using Analogy.LogViewer.Template.Properties;
 using Microsoft.Extensions.Logging;
 using System;
@@ -25,7 +25,7 @@ namespace Analogy.LogViewer.Template
 
         public abstract Task SaveSettingsAsync();
     }
-    public abstract class TemplateUserSettingsFactoryWinforms : IAnalogyDataProviderSettingsWinforms
+    public abstract class TemplateUserSettingsFactoryWinForms : IAnalogyDataProviderSettingsWinForms
     {
         public virtual string Title { get; set; } = "User Settings";
         public abstract UserControl DataProviderSettings { get; set; }
@@ -34,9 +34,9 @@ namespace Analogy.LogViewer.Template
         AnalogyToolTip? IAnalogyDataProviderSettings.ToolTip
         {
             get => ToolTip;
-            set => ToolTip = value is AnalogyToolTipWinforms winforms ? winforms : null;
+            set => ToolTip = value is AnalogyToolTipWinForms WinForms ? WinForms : null;
         }
-        public virtual AnalogyToolTipWinforms? ToolTip { get; set; } = new AnalogyToolTipWinforms("User Setting", "Data Provider's User Setting", "", null, null);
+        public virtual AnalogyToolTipWinForms? ToolTip { get; set; } = new AnalogyToolTipWinForms("User Setting", "Data Provider's User Setting", "", null, null);
         public abstract Guid FactoryId { get; set; }
         public abstract Guid Id { get; set; }
 

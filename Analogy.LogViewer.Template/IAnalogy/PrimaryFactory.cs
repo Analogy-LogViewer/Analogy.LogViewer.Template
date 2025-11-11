@@ -1,6 +1,6 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.Factories;
-using Analogy.Interfaces.Winforms.Factories;
+using Analogy.Interfaces.WinForms.Factories;
 using Analogy.LogViewer.Template.Managers;
 using Analogy.LogViewer.Template.Properties;
 using Microsoft.Extensions.Logging;
@@ -33,7 +33,7 @@ namespace Analogy.LogViewer.Template
             return Task.CompletedTask;
         }
     }
-    public abstract class PrimaryFactoryWinforms : IAnalogyFactoryWinforms
+    public abstract class PrimaryFactoryWinForms : IAnalogyFactoryWinForms
     {
         public abstract Guid FactoryId { get; set; }
         public virtual string Title { get; set; } = "Data Provider";//override this

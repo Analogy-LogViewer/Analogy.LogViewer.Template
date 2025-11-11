@@ -1,7 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
-using Analogy.Interfaces.Winforms;
-using Analogy.Interfaces.Winforms.DataTypes;
+using Analogy.Interfaces.WinForms;
+using Analogy.Interfaces.WinForms.DataTypes;
 using Analogy.LogViewer.Template.Managers;
 using Analogy.LogViewer.Template.Properties;
 using Microsoft.Extensions.Logging;
@@ -51,7 +51,7 @@ namespace Analogy.LogViewer.Template.IAnalogy
             return Task.CompletedTask;
         }
     }
-    public abstract class AnalogyProviderSidePagingProviderWinforms : IAnalogyProviderSidePagingProviderWinforms
+    public abstract class AnalogyProviderSidePagingProviderWinForms : IAnalogyProviderSidePagingProviderWinForms
     {
         public abstract Guid Id { get; set; }
         public virtual Image? LargeImage { get; set; } = Resources.ServerMode_32x32;
@@ -61,10 +61,10 @@ namespace Analogy.LogViewer.Template.IAnalogy
         AnalogyToolTip? IAnalogyDataProvider.ToolTip
         {
             get => ToolTip;
-            set => ToolTip = value is AnalogyToolTipWinforms winforms ? winforms: null;
+            set => ToolTip = value is AnalogyToolTipWinForms WinForms ? WinForms: null;
         }
 
-        public virtual AnalogyToolTipWinforms? ToolTip { get; set; } = new AnalogyToolTipWinforms("Server Side Provider", "Server Side data Fetcher", "", null, null);
+        public virtual AnalogyToolTipWinForms? ToolTip { get; set; } = new AnalogyToolTipWinForms("Server Side Provider", "Server Side data Fetcher", "", null, null);
         public virtual Task InitializeDataProvider(ILogger logger)
         {
             LogManager.Instance.SetLogger(logger);
