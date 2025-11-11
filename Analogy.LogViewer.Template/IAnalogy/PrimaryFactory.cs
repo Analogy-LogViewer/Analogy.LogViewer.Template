@@ -33,7 +33,7 @@ namespace Analogy.LogViewer.Template
             return Task.CompletedTask;
         }
     }
-    public abstract class PrimaryFactoryWinForms : IAnalogyFactoryWinforms
+    public abstract class PrimaryFactoryWinforms : IAnalogyFactoryWinforms
     {
         public abstract Guid FactoryId { get; set; }
         public virtual string Title { get; set; } = "Data Provider";//override this
