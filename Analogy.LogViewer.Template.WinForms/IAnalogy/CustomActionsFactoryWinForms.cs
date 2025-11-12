@@ -1,10 +1,5 @@
-﻿using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using Analogy.Interfaces.Factories;
-using Analogy.Interfaces.WinForms;
-using Analogy.Interfaces.WinForms.DataTypes;
+﻿using Analogy.Interfaces.WinForms;
 using Analogy.Interfaces.WinForms.Factories;
-using System;
 using System.Collections.Generic;
 
 namespace Analogy.LogViewer.Template.WinForms
