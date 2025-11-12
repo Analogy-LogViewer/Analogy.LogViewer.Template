@@ -1,13 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net10.0;net9.0;net8.0;net48</TargetFrameworks>
+		<TargetFrameworks>net10.0-windows;net9.0-windows;net8.0-windows;net48</TargetFrameworks>
 		<VersionPrefix>9.0.0</VersionPrefix>
-		<VersionSuffix></VersionSuffix>
+		<VersionSuffix>rc1</VersionSuffix>
+		<UseWindowsForms>true</UseWindowsForms>
 		<OutputType>Library</OutputType>
 		<Authors>Lior Banai</Authors>
 		<Company>Analogy.LogViewer</Company>
 		<Description>Template implementation to be used as base implementation</Description>
 		<Copyright>Lior Banai 2020-2026</Copyright>
+		<AssemblyName>Analogy.LogViewer.Template.WinForms</AssemblyName>
+		<RootNamespace>Analogy.LogViewer.Template.WinForms</RootNamespace>
 		<PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Template</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Template</RepositoryUrl>
 		<PackageIcon>AnalogyBanner512x512.jpg</PackageIcon>
@@ -17,6 +20,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="9.0.0" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces.WinForms" Version="9.0.0" />
 		<PackageReference Include="Analogy.CommonUtilities" Version="9.0.1" />
 	</ItemGroup>
 	<ItemGroup>
@@ -39,6 +43,10 @@
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Analogy.LogViewer.Template\Analogy.LogViewer.Template.csproj" />
 	</ItemGroup>
 
 </Project>

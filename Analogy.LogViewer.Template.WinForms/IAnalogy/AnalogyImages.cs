@@ -1,9 +1,9 @@
 ﻿using Analogy.Interfaces;
-using Analogy.LogViewer.Template.Properties;
+using Analogy.LogViewer.Template.WinForms.Properties;
 using System;
 using System.Drawing;
 
-namespace Analogy.LogViewer.Template.IAnalogy
+namespace Analogy.LogViewer.Template.WinForms
 {
     public class AnalogyImages : IAnalogyImages
     {

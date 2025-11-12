@@ -1,12 +1,7 @@
-﻿using Analogy.LogViewer.Template.Properties;
-using System;
-using System.Collections.Generic;
+﻿using Analogy.LogViewer.Template.WinForms.Properties;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Analogy.LogViewer.Template
+namespace Analogy.LogViewer.Template.WinForms
 {
     public abstract class PrimaryFactoryWinForms : PrimaryFactory
     {
