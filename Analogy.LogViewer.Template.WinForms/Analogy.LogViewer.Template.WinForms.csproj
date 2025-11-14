@@ -19,9 +19,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.CommonUtilities" Version="9.0.1" />
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="9.0.0" />
-		<PackageReference Include="Analogy.LogViewer.Interfaces.WinForms" Version="9.0.0" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="9.0.2" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="9.0.1" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces.WinForms" Version="9.0.1" />
 		<PackageReference Include="Analogy.LogViewer.Template" Version="9.0.1" />
 	</ItemGroup>
 	<ItemGroup>
