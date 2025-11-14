@@ -1,7 +1,6 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Analogy.LogViewer.Template.Managers;
-using Analogy.LogViewer.Template.Properties;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -92,7 +91,7 @@ namespace Analogy.LogViewer.Template
             }
             catch (Exception ex)
             {
-                LogManager.Instance.LogError(ex, $"Error getting files from directory", ex, nameof(GetSupportedFilesInternal));
+                LogManager.Instance.LogError(ex, $"Error getting files from directory");
             }
 
             return files;

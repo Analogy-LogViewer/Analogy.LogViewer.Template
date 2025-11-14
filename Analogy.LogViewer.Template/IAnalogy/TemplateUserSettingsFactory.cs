@@ -1,6 +1,5 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
-using Analogy.LogViewer.Template.Properties;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Drawing;
