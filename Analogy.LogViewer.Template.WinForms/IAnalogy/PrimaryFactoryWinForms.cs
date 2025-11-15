@@ -1,5 +1,6 @@
 ﻿using Analogy.Interfaces.WinForms.Factories;
 using Analogy.LogViewer.Template.WinForms.Properties;
+using System;
 using System.Drawing;
 
 namespace Analogy.LogViewer.Template.WinForms

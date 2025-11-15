@@ -11,11 +11,13 @@ namespace Analogy.LogViewer.Template.WinForms
     {
         public virtual Image? SmallImage { get; set; } = Resources.Analogy16x16;
         public virtual Image? LargeImage { get; set; } = Resources.Analogy32x32;
-        AnalogyToolTip? IAnalogyDataProvider.ToolTip
-        {
-            get => ToolTip;
-            set => ToolTip = value as AnalogyToolTipWinForms;
-        }
-        public new virtual AnalogyToolTipWinForms? ToolTip { get; set; } = new AnalogyToolTipWinForms("Offline Data Provider", "Read a static list of messages (in most cases the source is a log file)", "", null, null);
+        public virtual Image? ToolTipSmallImage { get; set; } = Resources.Analogy16x16;
+        public virtual Image? ToolTipLargeImage { get; set; } = Resources.Analogy32x32;
+        public Image? GetDataProviderSmallImage() => SmallImage;
+        public Image? GetDataProviderLargeImage() => LargeImage;
+
+        public Image? GetDataProviderToolTipSmallImage() => ToolTipSmallImage;
+
+        public Image? GetDataProviderToolTipLargeImage() => ToolTipLargeImage;
     }
 }
