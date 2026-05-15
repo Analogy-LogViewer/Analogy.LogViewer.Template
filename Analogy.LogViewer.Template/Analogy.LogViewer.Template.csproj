@@ -16,7 +16,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.CommonUtilities" Version="9.0.3" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="9.0.4" />
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="9.0.2" />
 	</ItemGroup>
 
